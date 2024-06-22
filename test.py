@@ -7,7 +7,14 @@ import os
 
 # print(keyword.kwlist)
 
-a = {0, 1, 2, 3}
-# b will store squares of the elements of a
-b = {i ** 2 for i in a}
-print(b)
+import logging
+# Create and configues the logger
+logging.basicConfig(filename="newfile.log", format='%(asctime)s %(message)s', filemode='w')
+# Creates logging object
+logg = logging.getLogger()
+# Sets the level of logging to DEBUG
+logg.setLevel(logging.DEBUG)
+# Messages
+logg.debug("Debug Message")
+logg.warning("Its a Warning")
+logg.info("Just an information")
