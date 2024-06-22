@@ -7,14 +7,28 @@ import os
 
 # print(keyword.kwlist)
 
-import logging
-# Create and configues the logger
-logging.basicConfig(filename="newfile.log", format='%(asctime)s %(message)s', filemode='w')
-# Creates logging object
-logg = logging.getLogger()
-# Sets the level of logging to DEBUG
-logg.setLevel(logging.DEBUG)
-# Messages
-logg.debug("Debug Message")
-logg.warning("Its a Warning")
-logg.info("Just an information")
+# a=sys.path()  # Error
+
+
+def sub_decorator(func):
+    def wrapper(num1,num2):
+        if num1 < num2:
+            num1, num2 = num2, num1
+        return func(num1,num2)
+    return wrapper
+
+print('w/o using @:')
+def subtract(num1, num2):
+    res = num1 - num2
+    print('Result is :- ',res)
+
+sub=sub_decorator(subtract)
+sub(2,4)
+
+print('using @:')
+@sub_decorator # we can use @ syntax for decorating a function in one step
+def subtract(num1, num2):
+    res = num1 - num2
+    print('Result is :- ',res)
+
+subtract(2,4)
