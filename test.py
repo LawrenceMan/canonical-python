@@ -7,7 +7,7 @@ import os
 
 # print(keyword.kwlist)
 
-a = [0, 1, 2, 3]
-# b will store values which are 1 greater than the values stored in a
-b = [i + 1 for i in a]
+a = {0, 1, 2, 3}
+# b will store squares of the elements of a
+b = {i ** 2 for i in a}
 print(b)
